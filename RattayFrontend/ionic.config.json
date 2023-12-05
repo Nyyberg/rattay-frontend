@@ -1,0 +1,7 @@
+{
+  "name": "RattayFrontend",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
