@@ -9,15 +9,21 @@ import {LoginDTO, User} from "../user";
   styleUrls: ['login.component.css']
 })
 
+
 export class LoginComponent{
+
+  dto_ = {username:'',password:''}
 
   constructor(public http: HttpClient) {
   }
 
- async submitLogin(){
 
-    const result = await this.http.post<string>(environment.baseUrl + 'Login/logn', dto_).subscribe((res: any)=>{
-      localStorage.setItem('token', res.data.token)
+ async submitLogin(){
+    await this.http.post<string>(environment.baseUrl + 'Login/logn', this.dto_).subscribe((res: any)=>{
+      if(res.result){
+        alert('Login Success')
+        localStorage.setItem('token', res.data.token)
+      }
     })
 
   }
