@@ -22,12 +22,11 @@ export class LoginComponent{
   }
 
 
-  async submitLogin(){
-   const result = await firstValueFrom(this.http.post(environment.baseUrl + '/login/login', this.dto_))
+   submitLogin(){
+   const result = firstValueFrom(this.http.post('https://localhost:5000/login/login', this.dto_, {responseType: 'text'}))
     console.log(result)
     if (result){
-      console.log(result)
-      localStorage.setItem('user', JSON.stringify(result))
+      localStorage.setItem('token', result.toString())   
     }
   }
 }
