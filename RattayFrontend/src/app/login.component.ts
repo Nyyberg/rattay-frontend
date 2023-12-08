@@ -25,10 +25,13 @@ export class LoginComponent{
    async submitLogin(){
    const result = await firstValueFrom(this.http.post(environment.baseUrl+'/login/login', this.dto_, {responseType: 'text'}))
     if (result.length > 0){
-      localStorage.setItem('token', result)   
+      localStorage.setItem('token', result)  
+      //add route to dashboard 
+
     }
     else{
-      alert('Wrong username or password')
+      //display error message on login page
+      
     }
   }
 }
