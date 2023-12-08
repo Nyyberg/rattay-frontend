@@ -23,7 +23,7 @@ export class LoginComponent{
 
 
    submitLogin(){
-   const result = firstValueFrom(this.http.post('https://localhost:5000/login/login', this.dto_, {responseType: 'text'}))
+   const result = firstValueFrom(this.http.post(environment.baseUrl+'/login/login', this.dto_, {responseType: 'text'}))
     console.log(result)
     if (result){
       localStorage.setItem('token', result.toString())   
