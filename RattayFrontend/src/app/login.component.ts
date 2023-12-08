@@ -23,15 +23,17 @@ export class LoginComponent{
   }
 
 
- async submitLogin(){
-   const result = await (this.http.post('https://localhost:5000/login/login', this.dto_, {responseType: 'text'}))
-    console.log(result)
-    if (result.toString() != ''){
-      localStorage.setItem('token', result.toString())
-      this.router.navigateByUrl('/dashboard')
-      console.log('this is result: ' + result.toString())
-    }else {
-      alert('error')
+
+   async submitLogin(){
+   const result = await firstValueFrom(this.http.post(environment.baseUrl+'/login/login', this.dto_, {responseType: 'text'}))
+    if (result.length > 0){
+      localStorage.setItem('token', result)
+      //add route to dashboard
+
+    }
+    else{
+      //display error message on login page
+
     }
   }
 }
