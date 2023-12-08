@@ -3,6 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import {environment} from "../environments/environment";
 import {firstValueFrom} from "rxjs";
 import {LoginDTO, User} from "../user";
+import {Router} from "@angular/router";
 
 @Component({
   templateUrl: 'login.component.html',
@@ -18,15 +19,19 @@ export class LoginComponent{
     password: ''
   }
 
-  constructor(public http: HttpClient) {
+  constructor(public http: HttpClient, private router: Router) {
   }
 
 
-   submitLogin(){
-   const result = firstValueFrom(this.http.post('https://localhost:5000/login/login', this.dto_, {responseType: 'text'}))
+ async submitLogin(){
+   const result = await (this.http.post('https://localhost:5000/login/login', this.dto_, {responseType: 'text'}))
     console.log(result)
-    if (result){
-      localStorage.setItem('token', result.toString())   
+    if (result.toString() != ''){
+      localStorage.setItem('token', result.toString())
+      this.router.navigateByUrl('/dashboard')
+      console.log('this is result: ' + result.toString())
+    }else {
+      alert('error')
     }
   }
 }

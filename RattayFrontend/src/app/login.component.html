@@ -1,11 +1,20 @@
-<ion-list>
+<ion-app class="background">
+<ion-card class="login-card">
+  <ion-card-content>
+    <img class="login-image" src="assets/RATTAY-DK-01.png">
+<ion-list class="login-content">
+  <ion-text class="info-lable">Username</ion-text>
   <ion-item>
-    <ion-input label="username" name="username" [(ngModel)]="dto_.username"></ion-input>
+    <ion-input name="username" [(ngModel)]="dto_.username"></ion-input>
   </ion-item>
   <br>
+  <ion-text class="info-lable">Password</ion-text>
   <ion-item>
-    <ion-input label="password" name="password" type="password" [(ngModel)]="dto_.password"></ion-input>
+    <ion-input name="password" type="password" [(ngModel)]="dto_.password"></ion-input>
   </ion-item>
   <br>
   <ion-button color="success" (click)="submitLogin()">Login</ion-button>
 </ion-list>
+  </ion-card-content>
+</ion-card>
+</ion-app>
