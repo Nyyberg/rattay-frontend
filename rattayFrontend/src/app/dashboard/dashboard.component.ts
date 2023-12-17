@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {HttpClient} from "@angular/common/http";
+import {environment} from "../../environments/environment";
 
 @Component({
   selector: 'app-dashboard',
@@ -7,8 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent  implements OnInit {
 
-  constructor() { }
+  constructor(public http: HttpClient) { }
 
-  ngOnInit() {}
+
+  async fetchHookups(){
+   const result = await this.http.get(environment.baseUrl+'/getHookups')
+  }
+
+  ngOnInit(): void {
+  }
 
 }

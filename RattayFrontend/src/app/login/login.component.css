@@ -57,7 +57,7 @@ ion-button{
 }
 
 .background{
-  background: url("../assets/login_background.png") no-repeat 100% 100%;
+  background: url("../../assets/login_background.png") no-repeat 100% 100%;
   background-size: cover;
 }
 
