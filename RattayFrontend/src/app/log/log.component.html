@@ -1,10 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Title</title>
-</head>
-<body>
+<router-outlet>
+  <ion-header>
+    <ion-toolbar color="medium">
+      <ion-buttons slot="start">
+        <ion-button>API Hookup</ion-button>
+      </ion-buttons>
+      <ion-buttons slot="start">
+        <ion-button>Create New Hookup</ion-button>
+      </ion-buttons>
+      <ion-buttons slot="start">
+        <ion-button>Log history</ion-button>
+      </ion-buttons>
+      <ion-buttons slot="end">
+        <ion-button>Log out</ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
 
-</body>
-</html>
+  <ion-list>
+    <ion-item>
+      <ion-label>Test List</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>Test List</ion-label>
+    </ion-item>
+  </ion-list>
+</router-outlet>

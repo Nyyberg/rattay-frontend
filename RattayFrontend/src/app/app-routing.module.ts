@@ -3,6 +3,8 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import {logIn} from "ionicons/icons";
 import {LoginComponent} from "./login/login.component";
 import {DashboardComponent} from "./dashboard/dashboard.component";
+import {LogComponent} from "./log/log.component";
+import {CreatehookupComponent} from "./create-hookup/createhookup.component";
 
 const routes: Routes = [
   {
@@ -17,6 +19,14 @@ const routes: Routes = [
   {
     path: 'dashboard',
     component: DashboardComponent
+  },
+  {
+    path: 'log',
+    component: LogComponent
+  },
+  {
+    path: 'create',
+    component: CreatehookupComponent
   }
 ];
 
