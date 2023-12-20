@@ -23,8 +23,8 @@
       </div>
       <div>
         <ion-list>
-          <ion-item *ngForOf="let parameter of parameterList, let i = index">
-      <ion-input label="Parameter" [(ngmodel)]="parameterList[i]" type="text"></ion-input>
+          <ion-item *ngFor="let param of parameters; let i = index">
+      <ion-input label="Parameter" [(ngModel)]="parameters[i]" type="text"></ion-input>
           </ion-item>
         </ion-list>
         <ion-button (click)="addNewParamter()">+</ion-button>

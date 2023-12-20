@@ -8,19 +8,21 @@ import {Router} from "@angular/router";
 })
 export class CreatehookupComponent implements OnInit{
 
-  parameterList: string[] = [];
+  parameters: any[]=[];
 
   constructor(public router: Router) {
-    this.parameterList = [];
   }
-
 
 
   addNewParamter(){
-  this.parameterList.push()
+    //add a new parameter to the list
+    this.parameters.push({name: ''});
+    console.log(this.parameters);
+
   }
 
   ngOnInit(): void {
+    this.addNewParamter();
   }
 
 }
