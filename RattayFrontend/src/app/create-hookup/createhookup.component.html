@@ -15,31 +15,38 @@
       </ion-buttons>
     </ion-toolbar>
   </ion-header>
-
+  <ion-content [fullscreen]="true" class="ion-padding">
   <ion-list>
-    <ion-card>
+    <ion-card class="main-card">
       <div>
-      <ion-input>URL</ion-input>
+      <ion-input label="URL"></ion-input>
       </div>
       <div>
-      <ion-input>Parameter</ion-input>
+        <ion-list>
+          <ion-item *ngForOf="let parameter of parameterList, let i = index">
+      <ion-input label="Parameter" [(ngmodel)]="parameterList[i]" type="text"></ion-input>
+          </ion-item>
+        </ion-list>
+        <ion-button (click)="addNewParamter()">+</ion-button>
+      </div>
+      <div>
+        <ion-input label="SQL Query"></ion-input>
+      </div>
+      <div>
+        <ion-card>
+        <ion-input label="Header Key"></ion-input>
+        <ion-input label="Header Value"></ion-input>
         <ion-button>+</ion-button>
+        </ion-card>
       </div>
       <div>
-        <ion-input>SQL Query</ion-input>
-      </div>
-      <div>
-        <ion-input>Header Key</ion-input>
-        <ion-input>Header Value</ion-input>
-        <ion-button>+</ion-button>
-      </div>
-      <div>
-        <ion-label>When?</ion-label>
-        <ion-datetime></ion-datetime>
         <ion-checkbox>Every day</ion-checkbox>
         <ion-checkbox>Every Week</ion-checkbox>
         <ion-checkbox>Every Month</ion-checkbox>
+        <ion-datetime></ion-datetime>
       </div>
+      <ion-button>Create Hookup!</ion-button>
     </ion-card>
   </ion-list>
+  </ion-content>
 </ion-router-outlet>

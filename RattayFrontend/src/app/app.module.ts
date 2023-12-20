@@ -14,6 +14,7 @@ import {DashboardComponent} from "./dashboard/dashboard.component";
 import {LogComponent} from "./log/log.component";
 import {CreatehookupComponent} from "./create-hookup/createhookup.component";
 
+
 @NgModule({
   declarations: [AppComponent, LoginComponent, DashboardComponent, LogComponent, CreatehookupComponent],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule, FormsModule],

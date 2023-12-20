@@ -6,8 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="980f9e8e-f786-4497-a858-ec672dfc2f27" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rattayFrontend/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/rattayFrontend/src/app/app.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rattayFrontend/src/app/login.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/rattayFrontend/src/app/login.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rattayFrontend/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/rattayFrontend/src/app/app.module.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,6 +62,8 @@
       <updated>1702041225191</updated>
       <workItem from="1702041231824" duration="455000" />
       <workItem from="1702041733016" duration="6067000" />
+      <workItem from="1702286920631" duration="598000" />
+      <workItem from="1703058214002" duration="5116000" />
     </task>
     <servers />
   </component>
