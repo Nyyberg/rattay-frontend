@@ -9,6 +9,7 @@ import {Router} from "@angular/router";
 export class CreatehookupComponent implements OnInit{
 
   parameters: any[]=[];
+  headers: any[]=[];
 
   constructor(public router: Router) {
   }
@@ -21,8 +22,13 @@ export class CreatehookupComponent implements OnInit{
 
   }
 
+  addNewHeader(){
+    this.headers.push({name:''});
+  }
+
   ngOnInit(): void {
     this.addNewParamter();
+    this.addNewHeader();
   }
 
 }

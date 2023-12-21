@@ -33,11 +33,15 @@
         <ion-input label="SQL Query"></ion-input>
       </div>
       <div>
-        <ion-card>
+        <ion-list>
+          <ion-item *ngFor="let head of headers; let i = index">
+        <ion-card [(ngModel)]="headers[i].name">
         <ion-input label="Header Key"></ion-input>
         <ion-input label="Header Value"></ion-input>
-        <ion-button>+</ion-button>
+        <ion-button (click)="addNewHeader()">+</ion-button>
         </ion-card>
+          </ion-item>
+        </ion-list>
       </div>
       <div>
         <ion-checkbox>Every day</ion-checkbox>
