@@ -2,8 +2,11 @@ import {Component} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
 import {environment} from "../../environments/environment";
 import {firstValueFrom} from "rxjs";
-import {LoginDTO, User} from "../../user";
+
 import {Router} from "@angular/router";
+import {Httpservice} from "../Httpservice";
+import {LoginDTO} from "../User";
+
 
 @Component({
   templateUrl: 'login.component.html',
@@ -13,27 +16,19 @@ import {Router} from "@angular/router";
 
 
 export class LoginComponent{
+  _username: string = ""
+  _password: string = ""
 
-  dto_ =  {
-    username: '',
-    password: ''
-  }
-
-  constructor(public http: HttpClient, private router: Router) {
+  constructor(public http: Httpservice, private router: Router) {
   }
 
 
 
    async submitLogin(){
-   const result = await firstValueFrom(this.http.post(environment.baseUrl+'/login/login', this.dto_, {responseType: 'text'}))
-    if (result.length > 0){
-      localStorage.setItem('token', result)
-      //add route to dashboard
-
-    }
-    else{
-      //display error message on login page
-
-    }
+    let dto: LoginDTO = {
+      username: this._username,
+      password: this._password
+     }
+    await this.http.Login(dto)
   }
 }

@@ -35,9 +35,9 @@
       <div>
         <ion-list>
           <ion-item *ngFor="let head of headers; let i = index">
-        <ion-card [(ngModel)]="headers[i].name">
-        <ion-input label="Header Key"></ion-input>
-        <ion-input label="Header Value"></ion-input>
+        <ion-card>
+        <ion-input label="Header Key" [(ngModel)]="headers[i].key"></ion-input>
+        <ion-input label="Header Value"[(ngModel)]="headers[i].value"></ion-input>
         <ion-button (click)="addNewHeader()">+</ion-button>
         </ion-card>
           </ion-item>

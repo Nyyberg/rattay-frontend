@@ -1,5 +1,6 @@
 import {Component, OnInit} from "@angular/core";
 import {Router} from "@angular/router";
+import {HttpClient} from "@angular/common/http";
 
 
 @Component({
@@ -11,7 +12,7 @@ export class CreatehookupComponent implements OnInit{
   parameters: any[]=[];
   headers: any[]=[];
 
-  constructor(public router: Router) {
+  constructor(public router: Router, public http: HttpClient) {
   }
 
 
@@ -23,7 +24,12 @@ export class CreatehookupComponent implements OnInit{
   }
 
   addNewHeader(){
-    this.headers.push({name:''});
+    this.headers.push({key:'', value:''});
+    console.log(this.headers);
+  }
+
+  submitHookup(){
+
   }
 
   ngOnInit(): void {
