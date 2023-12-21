@@ -4,8 +4,9 @@ import {environment} from "../../environments/environment";
 import {firstValueFrom} from "rxjs";
 
 import {Router} from "@angular/router";
-import {Httpservice} from "../Httpservice";
-import {LoginDTO} from "../User";
+import {Httpservice} from "../../Httpservice";
+import {LoginDTO} from "../../User";
+
 
 
 @Component({

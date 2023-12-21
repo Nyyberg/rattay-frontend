@@ -1,9 +1,10 @@
-import {firstValueFrom} from "rxjs";
-import {environment} from "../environments/environment";
+import {firstValueFrom, map} from "rxjs";
 import {LoginDTO} from "./User";
 import {HttpClient} from "@angular/common/http";
 import {Router} from "@angular/router";
 import {Injectable} from "@angular/core";
+import {environment} from "./environments/environment";
+import {BodyDTO, Hookup} from "./hookup";
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +13,7 @@ import {Injectable} from "@angular/core";
 export class Httpservice{
   _username: string = "";
   _password: string = "";
+  _id: number = 0
 
   constructor(public http: HttpClient, private router: Router) {
   }
@@ -29,7 +31,27 @@ export class Httpservice{
     }
   }
 
-  createHookup(){
+  async createInitialHookup(_dto: Hookup){
+  return  this.http.post<Hookup>(environment.baseUrl+'/addHookup', _dto).pipe(map((resultWithId: Hookup)=>{
+
+  this._id = resultWithId.id
+  })
+  );
+  }
+
+  addBodyToHookup(_dto: BodyDTO){
+
+  }
+
+  addHeaderToHookup(){
+
+  }
+
+  getAllHookups(){
+
+  }
+
+  getAllLogs(){
 
   }
 }
