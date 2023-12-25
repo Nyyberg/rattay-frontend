@@ -21,9 +21,11 @@
     <ion-list>
       <ion-card class="first-create">
   <ion-input>URL</ion-input>
-  <ion-select>
+  <ion-select label="HTTP Type">
     <ion-select-option value="Post">Post</ion-select-option>
     <ion-select-option value="Get">Get</ion-select-option>
+    <ion-select-option value="Delete">Delete</ion-select-option>
+    <ion-select-option value="Put">Put</ion-select-option>
   </ion-select>
   <ion-checkbox>Every day</ion-checkbox>
   <ion-checkbox>Every Week</ion-checkbox>
@@ -42,7 +44,7 @@
           <ion-card>
             <ion-input label="Parameter Name" [(ngModel)]="parameters[i].name"></ion-input>
             <ion-input label="Parameter Value"[(ngModel)]="parameters[i].value"></ion-input>
-            <ion-select [(ngModel)]="parameters[i].type">
+            <ion-select [(ngModel)]="parameters[i].type" label="Type">
               <ion-select-option value="sqlQuery">SqlQuery</ion-select-option>
               <ion-select-option value="hookup">Hookup</ion-select-option>
               <ion-select-option value="custom">Custom</ion-select-option>
@@ -62,6 +64,7 @@
           <ion-card>
             <ion-input label="Header Key" [(ngModel)]="headers[i].key"></ion-input>
             <ion-input label="Header Value"[(ngModel)]="headers[i].value"></ion-input>
+            <ion-input label="Header Type"[(ngModel)]="headers[i].type"></ion-input>
             <ion-button (click)="addNewHeader()">+</ion-button>
           </ion-card>
         </ion-item>

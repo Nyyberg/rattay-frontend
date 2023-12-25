@@ -34,7 +34,7 @@ export class CreatehookupComponent implements OnInit{
   }
 
   addNewHeader(){
-    this.headers.push({key:'', value:''});
+    this.headers.push({key:'', value:'', type: ''});
     console.log(this.headers);
   }
 
