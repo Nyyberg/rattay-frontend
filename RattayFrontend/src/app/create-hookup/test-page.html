@@ -1,0 +1,69 @@
+<ion-header>
+  <ion-toolbar color="medium">
+    <ion-buttons slot="start">
+      <ion-button>API Hookup</ion-button>
+    </ion-buttons>
+    <ion-buttons slot="start">
+      <ion-button>Create New Hookup</ion-button>
+    </ion-buttons>
+    <ion-buttons slot="start">
+      <ion-button>Log history</ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button>Log out</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-input>URL</ion-input>
+<ion-select>
+  <ion-select-option value="Post">Post</ion-select-option>
+  <ion-select-option value="Get">Get</ion-select-option>
+</ion-select>
+<ion-checkbox>Every day</ion-checkbox>
+<ion-checkbox>Every Week</ion-checkbox>
+<ion-checkbox>Every Month</ion-checkbox>
+<ion-datetime></ion-datetime>
+
+
+
+
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <ion-list>
+    <ion-card class="main-card">
+      <div>
+        <ion-input label="URL"></ion-input>
+      </div>
+      <div>
+        <ion-list>
+          <ion-item *ngFor="let param of parameters; let i = index">
+            <ion-input label="Parameter" [(ngModel)]="parameters[i].name" type="text"></ion-input>
+          </ion-item>
+        </ion-list>
+        <ion-button (click)="addNewParamter()">+</ion-button>
+      </div>
+      <div>
+        <ion-input label="SQL Query"></ion-input>
+      </div>
+      <div>
+        <ion-list>
+          <ion-item *ngFor="let head of headers; let i = index">
+            <ion-card>
+              <ion-input label="Header Key" [(ngModel)]="headers[i].key"></ion-input>
+              <ion-input label="Header Value"[(ngModel)]="headers[i].value"></ion-input>
+              <ion-button (click)="addNewHeader()">+</ion-button>
+            </ion-card>
+          </ion-item>
+        </ion-list>
+      </div>
+      <div>
+        <ion-checkbox>Every day</ion-checkbox>
+        <ion-checkbox>Every Week</ion-checkbox>
+        <ion-checkbox>Every Month</ion-checkbox>
+        <ion-datetime></ion-datetime>
+      </div>
+      <ion-button>Create Hookup!</ion-button>
+    </ion-card>
+  </ion-list>
+</ion-content>

@@ -20,6 +20,7 @@ export class CreatehookupComponent implements OnInit{
 
   parameters: any[]=[];
   headers: any[]=[];
+  currentStep: number = 1;
 
   constructor(public router: Router, public http: Httpservice) {
   }
@@ -27,7 +28,7 @@ export class CreatehookupComponent implements OnInit{
 
   addNewParamter(){
     //add a new parameter to the list
-    this.parameters.push({name: ''});
+    this.parameters.push({name: '', value: '', type: ''});
     console.log(this.parameters);
 
   }
@@ -37,7 +38,20 @@ export class CreatehookupComponent implements OnInit{
     console.log(this.headers);
   }
 
- async submitInitialHookup(){
+  nextStepInital(){
+    if (this.currentStep < 3){
+      this.currentStep++;
+    }
+  }
+
+  nextStepBody(){
+    if (this.currentStep < 3){
+      this.currentStep++;
+    }
+  }
+
+
+  async submitInitialHookup(){
     let dto: Hookup = {
       id: this._id,
       url: this._url,

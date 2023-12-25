@@ -15,42 +15,59 @@
       </ion-buttons>
     </ion-toolbar>
   </ion-header>
-  <ion-content [fullscreen]="true" class="ion-padding">
+
+  <ion-content>
+    <div *ngIf="currentStep === 1">
+    <ion-list>
+      <ion-card class="first-create">
+  <ion-input>URL</ion-input>
+  <ion-select>
+    <ion-select-option value="Post">Post</ion-select-option>
+    <ion-select-option value="Get">Get</ion-select-option>
+  </ion-select>
+  <ion-checkbox>Every day</ion-checkbox>
+  <ion-checkbox>Every Week</ion-checkbox>
+  <ion-checkbox>Every Month</ion-checkbox>
+  <ion-datetime></ion-datetime>
+        <ion-button (click)="nextStepInital()">Next!</ion-button>
+      </ion-card>
+    </ion-list>
+    </div>
+
+    <div *ngIf="currentStep === 2">
   <ion-list>
-    <ion-card class="main-card">
-      <div>
-      <ion-input label="URL"></ion-input>
-      </div>
-      <div>
-        <ion-list>
-          <ion-item *ngFor="let param of parameters; let i = index">
-      <ion-input label="Parameter" [(ngModel)]="parameters[i].name" type="text"></ion-input>
-          </ion-item>
-        </ion-list>
-        <ion-button (click)="addNewParamter()">+</ion-button>
-      </div>
-      <div>
-        <ion-input label="SQL Query"></ion-input>
-      </div>
-      <div>
-        <ion-list>
-          <ion-item *ngFor="let head of headers; let i = index">
-        <ion-card>
-        <ion-input label="Header Key" [(ngModel)]="headers[i].key"></ion-input>
-        <ion-input label="Header Value"[(ngModel)]="headers[i].value"></ion-input>
-        <ion-button (click)="addNewHeader()">+</ion-button>
-        </ion-card>
-          </ion-item>
-        </ion-list>
-      </div>
-      <div>
-        <ion-checkbox>Every day</ion-checkbox>
-        <ion-checkbox>Every Week</ion-checkbox>
-        <ion-checkbox>Every Month</ion-checkbox>
-        <ion-datetime></ion-datetime>
-      </div>
-      <ion-button>Create Hookup!</ion-button>
+    <ion-card class="addBody">
+      <ion-list>
+        <ion-item *ngFor="let param of parameters; let i = index">
+          <ion-card>
+            <ion-input label="Parameter Name" [(ngModel)]="parameters[i].name"></ion-input>
+            <ion-input label="Parameter Value"[(ngModel)]="parameters[i].value"></ion-input>
+            <ion-select [(ngModel)]="parameters[i].type">
+              <ion-select-option value="sqlQuery">SqlQuery</ion-select-option>
+              <ion-select-option value="hookup">Hookup</ion-select-option>
+              <ion-select-option value="custom">Custom</ion-select-option>
+            </ion-select>
+            <ion-button (click)="addNewParamter()">+</ion-button>
+          </ion-card>
+        </ion-item>
+      </ion-list>
+      <ion-button (click)="nextStepBody()">Next!</ion-button>
     </ion-card>
   </ion-list>
+    </div>
+
+    <div *ngIf="currentStep === 3">
+      <ion-list>
+        <ion-item *ngFor="let head of headers; let i = index">
+          <ion-card>
+            <ion-input label="Header Key" [(ngModel)]="headers[i].key"></ion-input>
+            <ion-input label="Header Value"[(ngModel)]="headers[i].value"></ion-input>
+            <ion-button (click)="addNewHeader()">+</ion-button>
+          </ion-card>
+        </ion-item>
+        <ion-button>Submit Hookup!</ion-button>
+      </ion-list>
+    </div>
+
   </ion-content>
 </ion-router-outlet>

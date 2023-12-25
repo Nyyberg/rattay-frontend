@@ -9,7 +9,7 @@ export interface Hookup {
 }
 
 export interface BodyDTO{
-  hookupId: number;
+  hookupBodyId: number;
   bodyType: string;
   parameterName: string;
   custom: string;
@@ -18,7 +18,7 @@ export interface BodyDTO{
 }
 
 export interface HeaderDTO{
-  hookupID: number;
+  hookupHeaderID: number;
   headerKey: string;
   headerValue: string;
   headerType: string;
