@@ -17,8 +17,12 @@
 </ion-header>
 
 <ion-list>
-  <ion-card>
-
+  <ion-card *ngFor="let hookup of state.hookups">
+    <ion-toolbar>
+      <ion-title>{{hookup.url}}</ion-title>
+    </ion-toolbar>
+    <ion-button>Delete</ion-button>
+    <ion-button>Update</ion-button>
   </ion-card>
 </ion-list>
 </ion-router-outlet>

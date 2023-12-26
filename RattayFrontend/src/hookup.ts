@@ -25,3 +25,11 @@ export interface HeaderDTO{
   hookupAsParameter: number;
 }
 
+export interface AllHookups{
+
+}
+
+export interface ResponseDto<t>{
+  responseData?: t;
+  messageToClient?: t;
+}

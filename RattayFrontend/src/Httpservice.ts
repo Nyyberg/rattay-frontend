@@ -4,7 +4,8 @@ import {HttpClient} from "@angular/common/http";
 import {Router} from "@angular/router";
 import {Injectable} from "@angular/core";
 import {environment} from "./environments/environment";
-import {BodyDTO, Hookup} from "./hookup";
+import {BodyDTO, Hookup, ResponseDto} from "./hookup";
+import {State} from "./state";
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,7 @@ export class Httpservice{
   _password: string = "";
   _id: number = 0
 
-  constructor(public http: HttpClient, private router: Router) {
+  constructor(public http: HttpClient, private router: Router, public state: State) {
   }
 
   async Login(_dto: LoginDTO){
@@ -47,9 +48,7 @@ export class Httpservice{
 
   }
 
-  getAllHookups(){
 
-  }
 
   getAllLogs(){
 

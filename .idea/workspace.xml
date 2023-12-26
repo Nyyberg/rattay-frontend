@@ -5,9 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="980f9e8e-f786-4497-a858-ec672dfc2f27" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/RattayFrontend/src/state.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rattayFrontend/src/app/create-hookup/createhookup.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/rattayFrontend/src/app/create-hookup/createhookup.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rattayFrontend/src/app/create-hookup/createhookup.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/rattayFrontend/src/app/create-hookup/createhookup.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RattayFrontend/src/Httpservice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/RattayFrontend/src/Httpservice.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rattayFrontend/src/app/dashboard/dashboard.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/rattayFrontend/src/app/dashboard/dashboard.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rattayFrontend/src/app/dashboard/dashboard.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/rattayFrontend/src/app/dashboard/dashboard.component.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,8 +20,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="CSS File" />
-        <option value="TypeScript File" />
         <option value="HTML File" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
@@ -65,7 +67,8 @@
       <workItem from="1702041733016" duration="6067000" />
       <workItem from="1702286920631" duration="598000" />
       <workItem from="1703058214002" duration="5116000" />
-      <workItem from="1703505374063" duration="6599000" />
+      <workItem from="1703505374063" duration="7846000" />
+      <workItem from="1703603151978" duration="2489000" />
     </task>
     <servers />
   </component>
