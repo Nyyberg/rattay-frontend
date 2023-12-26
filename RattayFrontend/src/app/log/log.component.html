@@ -17,11 +17,8 @@
   </ion-header>
 
   <ion-list>
-    <ion-item>
-      <ion-label>Test List</ion-label>
-    </ion-item>
-    <ion-item>
-      <ion-label>Test List</ion-label>
+    <ion-item *ngFor="let log of state.Logs">
+      <ion-label>{{log}}</ion-label>
     </ion-item>
   </ion-list>
 </router-outlet>

@@ -6,6 +6,7 @@ import {Injectable} from "@angular/core";
 import {environment} from "./environments/environment";
 import {BodyDTO, Hookup, ResponseDto} from "./hookup";
 import {State} from "./state";
+import {Log} from "./logs";
 
 @Injectable({
   providedIn: 'root'
@@ -45,12 +46,6 @@ export class Httpservice{
   }
 
   addHeaderToHookup(){
-
-  }
-
-
-
-  getAllLogs(){
 
   }
 }
