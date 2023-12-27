@@ -1,6 +1,6 @@
 import {Injectable} from "@angular/core";
-import {Hookup} from "./hookup";
 import {Log} from "./logs";
+import {Hookup} from "./hookup";
 
 @Injectable({
   providedIn: 'root'

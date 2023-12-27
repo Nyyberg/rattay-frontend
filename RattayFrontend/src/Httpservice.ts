@@ -4,7 +4,7 @@ import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Router} from "@angular/router";
 import {Injectable} from "@angular/core";
 import {environment} from "./environments/environment";
-import {BodyDTO, Hookup, ResponseDto} from "./hookup";
+import {BodyDTO, Hookup} from "./hookup";
 import {State} from "./state";
 import {Log} from "./logs";
 
@@ -68,13 +68,41 @@ export class Httpservice{
 
     try {
       // Make the HTTP request with headers and get the observable
-      const observable = this.http.get<ResponseDto<Hookup[]>>(environment.baseUrl + '/getAllHookups', { headers });
+      const observable = this.http.get<Hookup[]>(environment.baseUrl + '/getAllHookups', { headers });
 
       // Use firstValueFrom to get the first value emitted by the observable
-      const result: ResponseDto<Hookup[]> = await firstValueFrom(observable);
+      const result: Hookup[] = await firstValueFrom(observable);
 
       // Update the state with the response data
-      this.state.hookups = result.responseData!;
+      this.state.hookups = result
+    } catch (error) {
+      // Handle errors here
+      console.error('Error fetching hookups:', error);
+    }
+  }
+
+  async getAllLogs(): Promise<void> {
+    // Retrieve the token from the State service
+    const token = localStorage.getItem('token');
+
+    // Check if token is present
+    if (!token) {
+      console.error('No token found in localStorage. Authentication required.');
+      return;
+    }
+
+    // Create HttpHeaders with Authorization header
+    const headers = new HttpHeaders().set('Authorization', 'Bearer ' + token);
+
+    try {
+      // Make the HTTP request with headers and get the observable
+      const observable = this.http.get<Log[]>(environment.baseUrl + '/Log/GetAllLogs', { headers });
+
+      // Use firstValueFrom to get the first value emitted by the observable
+      const result: Log[] = await firstValueFrom(observable);
+      console.log(result)
+      // Update the state with the response data
+      this.state.Logs = result
     } catch (error) {
       // Handle errors here
       console.error('Error fetching hookups:', error);

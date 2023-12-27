@@ -3,7 +3,7 @@ import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {environment} from "../../environments/environment";
 import {Router} from "@angular/router";
 import {Httpservice} from "../../Httpservice";
-import {Hookup, ResponseDto} from "../../hookup";
+import {Hookup} from "../../hookup";
 import {firstValueFrom} from "rxjs";
 import {State} from "../../state";
 import {Log} from "../../logs";

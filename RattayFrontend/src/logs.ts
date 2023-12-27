@@ -6,7 +6,3 @@ export interface Log{
   ErrorMessage: string;
 }
 
-export interface ResponseDto<t>{
-  responseData?: t;
-  messageToClient?: t;
-}

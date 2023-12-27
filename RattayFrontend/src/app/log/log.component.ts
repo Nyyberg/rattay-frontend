@@ -1,7 +1,7 @@
 import {Component, OnInit} from "@angular/core";
 import {Httpservice} from "../../Httpservice";
 import {State} from "../../state";
-import {Hookup, ResponseDto} from "../../hookup";
+import {Hookup} from "../../hookup";
 import {firstValueFrom} from "rxjs";
 import {environment} from "../../environments/environment";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
@@ -14,36 +14,16 @@ import {Log} from "../../logs";
 
 export class LogComponent implements OnInit{
 
-  constructor(public http: HttpClient, public state: State){
+  constructor(public http: Httpservice, public state: State){
   }
 
- /* async getAllLogs(){
-      let headers = new HttpHeaders().set('Authorization', 'Bearer ' + localStorage.getItem('token'));
-      const result: ResponseDto<Log[]> = await firstValueFrom(this.http.get<ResponseDto<Log[]>>(environment.baseUrl+'/Log/GetAllLogs'));
-      this.state.Logs = result.responseData!;
-    }
-*/
-  async getAllLogs() {
-    // Create HttpHeaders with Authorization header
-    const headers = new HttpHeaders().set('Authorization', 'Bearer ' + localStorage.getItem('token'));
-
-    try {
-      // Make the HTTP request with headers and get the observable
-      const observable = this.http.get<ResponseDto<Log[]>>(environment.baseUrl + '/Log/GetAllLogs', { headers });
-
-      // Use firstValueFrom to get the first value emitted by the observable
-      const result: ResponseDto<Log[]> = await firstValueFrom(observable);
-
-      // Update your state with the response data
-      this.state.Logs = result.responseData!;
-    } catch (error) {
-      // Handle errors here
-      console.error('Error fetching logs:', error);
-    }
-  }
 
   ngOnInit(): void {
-  this.getAllLogs()
+    // Call the method from HttpService to retrieve hookups
+    this.http.getAllLogs().then(() => {
+      // Handle any additional logic after hookups are retrieved
+    }).catch(error => {
+      console.error('Error retrieving Logs:', error);
+    });
   }
-
 }

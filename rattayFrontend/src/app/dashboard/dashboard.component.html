@@ -17,9 +17,10 @@
 </ion-header>
 
 <ion-list>
-  <ion-card *ngFor="let stuff of state.hookups">
+  <ion-card *ngFor="let hookup of state.hookups">
     <ion-toolbar>
-      <ion-title>{{stuff}}</ion-title>
+      <ion-title>{{hookup['url']}}</ion-title>
+      <ion-card-subtitle>{{hookup['methodType']}}</ion-card-subtitle>
     </ion-toolbar>
     <ion-button>Delete</ion-button>
     <ion-button>Update</ion-button>
