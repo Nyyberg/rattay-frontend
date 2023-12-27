@@ -18,10 +18,10 @@
 
   <ion-list>
     <ion-item *ngFor="let log of state.Logs">
-      <ion-label>HookupBeId: {{ log['Id']}}</ion-label>
-      <ion-label>Timestamp: {{ log.Timestamp | date: 'medium' }}</ion-label>
-      <ion-label>IsSuccessful: {{ log['IsSuccessful'] ? '1' : '2' }}</ion-label>
-      <ion-label *ngIf="log['ErrorMessage']">Error: {{ log['ErrorMessage']}}</ion-label>
+      <ion-label>Hookup Id:{{ log['hookupBeId']}}</ion-label>
+      <ion-label>Timestamp: {{ log['timestamp'] | date: 'medium' }}</ion-label>
+      <ion-label>IsSuccessful: {{ log['isSuccessful'] ? 'yes' : 'no' }}</ion-label>
+      <ion-label> Error: {{ log['errorMessage']}}</ion-label>
     </ion-item>
   </ion-list>
 </router-outlet>

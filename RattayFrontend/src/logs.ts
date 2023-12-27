@@ -1,8 +1,8 @@
 export interface Log{
-  Id: number;
-  HookupBeId: number;
-  Timestamp: Date;
-  IsSuccessful: boolean;
-  ErrorMessage: string;
+  id: number;
+  hookupBeId: number;
+  timestamp: Date;
+  isSuccessful: boolean;
+  errorMessage: string;
 }
 
