@@ -1,5 +1,9 @@
 export interface Log{
-  logString: string;
+  Id: number;
+  HookupBeId: number;
+  Timestamp: Date;
+  IsSuccessful: boolean;
+  ErrorMessage: string;
 }
 
 export interface ResponseDto<t>{

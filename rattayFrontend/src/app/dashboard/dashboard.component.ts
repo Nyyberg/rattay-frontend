@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {environment} from "../../environments/environment";
 import {Router} from "@angular/router";
 import {Httpservice} from "../../Httpservice";
 import {Hookup, ResponseDto} from "../../hookup";
 import {firstValueFrom} from "rxjs";
 import {State} from "../../state";
+import {Log} from "../../logs";
 
 @Component({
   selector: 'app-dashboard',
@@ -15,12 +16,8 @@ import {State} from "../../state";
 export class DashboardComponent  implements OnInit {
 
 
-  constructor(public http: HttpClient, public router: Router, public state: State) { }
+  constructor(public http: Httpservice, public router: Router, public state: State) { }
 
-  async getAllHookups(){
-    const result: ResponseDto<Hookup[]> = await firstValueFrom(this.http.get<ResponseDto<Hookup[]>>(environment.baseUrl+'/getAllHookups'));
-    this.state.hookups = result.responseData!;
-  }
 
   routeLog(){
     this.router.navigateByUrl('/log')
@@ -35,7 +32,12 @@ export class DashboardComponent  implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getAllHookups();
+    // Call the method from HttpService to retrieve hookups
+    this.http.getAllHookups().then(() => {
+      // Handle any additional logic after hookups are retrieved
+    }).catch(error => {
+      console.error('Error retrieving hookups:', error);
+    });
   }
 
 }
