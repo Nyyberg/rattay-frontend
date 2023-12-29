@@ -65,6 +65,7 @@
             <ion-input label="Header Key" [(ngModel)]="headers[i].key"></ion-input>
             <ion-input label="Header Value"[(ngModel)]="headers[i].value"></ion-input>
             <ion-input label="Header Type"[(ngModel)]="headers[i].type"></ion-input>
+            <ion-input label="Sql Query" [(ngModel)]="headers[i].sqlToServer"></ion-input>
             <ion-button (click)="addNewHeader()">+</ion-button>
           </ion-card>
         </ion-item>

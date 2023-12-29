@@ -36,7 +36,7 @@ export class CreatehookupComponent implements OnInit{
   }
 
   addNewHeader(){
-    this.headers.push({key:'', value:'', type: ''});
+    this.headers.push({key:'', value:'', type: '', sqlToServer: ''});
     console.log(this.headers);
   }
 
@@ -97,7 +97,7 @@ export class CreatehookupComponent implements OnInit{
         headerKey: item.key,
         headerValue: item.value,
         ValueType: item.type,
-        SqlQuery: item.value,
+        SqlQuery: item.sqlToServer,
         hookupAsParameter: 1
       };
       return this.http.addHeaderToHookup(_dto)
