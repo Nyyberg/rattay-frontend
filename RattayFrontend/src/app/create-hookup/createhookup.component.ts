@@ -2,7 +2,8 @@ import {Component, OnInit} from "@angular/core";
 import {Router} from "@angular/router";
 import {HttpClient} from "@angular/common/http";
 import {Httpservice} from "../../Httpservice";
-import {Hookup} from "../../hookup";
+import {Hookup, BodyDTO, HeaderDTO} from "../../hookup";
+import {forkJoin} from "rxjs";
 
 
 @Component({
@@ -21,6 +22,7 @@ export class CreatehookupComponent implements OnInit{
   parameters: any[]=[];
   headers: any[]=[];
   currentStep: number = 1;
+  initialHookupID!: number;
 
   constructor(public router: Router, public http: Httpservice) {
   }
@@ -38,7 +40,7 @@ export class CreatehookupComponent implements OnInit{
     console.log(this.headers);
   }
 
-  nextStepInital(){
+ nextStepInital(){
     if (this.currentStep < 3){
       this.currentStep++;
     }
@@ -52,6 +54,7 @@ export class CreatehookupComponent implements OnInit{
 
 
   async submitInitialHookup(){
+    if (this.currentStep === 1){
     let dto: Hookup = {
       id: this._id,
       url: this._url,
@@ -61,9 +64,32 @@ export class CreatehookupComponent implements OnInit{
       isEveryMonth: this._isEveryMonth,
       timeOfDay: this._timeOfDay
     }
-    await this.http.createInitialHookup(dto);
-    this._id = this.http._id
+    await this.http.initialHookup(dto).subscribe((response) => {
+      this.initialHookupID = response.id
+      this.currentStep++;
+      console.log(this.initialHookupID)
+    })
+    }
   }
+
+  addbody(){
+    const addBodyObservables = this.parameters.map((item) => {
+      const _dto: BodyDTO = {
+        hookupBeId: this.initialHookupID,
+        bodyType: item.type,
+        parameterName: item.name,
+        custom: item.type === 'custom' ? item.value : null,
+        sqlQuery: item.type === 'sqlQuery' ? item.value : null,
+        hookupAsParameter: 1,
+      };
+      return this.http.addBodyToHookup(_dto)
+    });
+    forkJoin(addBodyObservables).subscribe(() => {
+      this.currentStep++
+    })
+    console.log(this.initialHookupID)
+  }
+
 
   ngOnInit(): void {
     this.addNewParamter();

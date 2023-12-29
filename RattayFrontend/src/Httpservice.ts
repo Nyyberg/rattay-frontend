@@ -4,7 +4,7 @@ import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Router} from "@angular/router";
 import {Injectable} from "@angular/core";
 import {environment} from "./environments/environment";
-import {BodyDTO, Hookup} from "./hookup";
+import {BodyDTO, HeaderDTO, Hookup} from "./hookup";
 import {State} from "./state";
 import {Log} from "./logs";
 
@@ -38,19 +38,32 @@ export class Httpservice{
   }
 
   async createInitialHookup(_dto: Hookup){
-  return  this.http.post<Hookup>(environment.baseUrl+'/addHookup', _dto).pipe(map((resultWithId: Hookup)=>{
+    const token = localStorage.getItem('token');
+    const headers = new HttpHeaders().set('Authorization', 'Bearer ' + token);
+  return  this.http.post<Hookup>(environment.baseUrl+'/addHookup', _dto, {headers}).pipe(map((resultWithId: Hookup)=>{
 
   this._id = resultWithId.id
+    console.log(resultWithId.id)
+    return resultWithId;
   })
   );
   }
 
-  addBodyToHookup(_dto: BodyDTO){
-
+  initialHookup(_dto: Hookup): Observable<any>{
+    const token = localStorage.getItem('token');
+    const headers = new HttpHeaders().set('Authorization', 'Bearer ' + token);
+    return this.http.post(environment.baseUrl+'/addHookup', _dto, {headers})
   }
 
-  addHeaderToHookup(){
 
+  addBodyToHookup(_dto: BodyDTO): Observable<any>{
+    const token = localStorage.getItem('token');
+    const headers = new HttpHeaders().set('Authorization', 'Bearer ' + token);
+  return this.http.post(environment.baseUrl+'/addBody', _dto, {headers})
+  }
+
+  addHeaderToHookup(_dto: HeaderDTO): Observable<any>{
+    return this.http.post(environment.baseUrl+'/addHeader', _dto)
   }
 
   async getAllHookups(): Promise<void> {

@@ -20,18 +20,18 @@
     <div *ngIf="currentStep === 1">
     <ion-list>
       <ion-card class="first-create">
-  <ion-input>URL</ion-input>
-  <ion-select label="HTTP Type">
+  <ion-input [(ngModel)]="_url">URL</ion-input>
+  <ion-select [(ngModel)]="_methodType" label="HTTP Type">
     <ion-select-option value="Post">Post</ion-select-option>
     <ion-select-option value="Get">Get</ion-select-option>
     <ion-select-option value="Delete">Delete</ion-select-option>
     <ion-select-option value="Put">Put</ion-select-option>
   </ion-select>
-  <ion-checkbox>Every day</ion-checkbox>
-  <ion-checkbox>Every Week</ion-checkbox>
-  <ion-checkbox>Every Month</ion-checkbox>
-  <ion-datetime></ion-datetime>
-        <ion-button (click)="nextStepInital()">Next!</ion-button>
+  <ion-checkbox [(ngModel)]="_isEveryDay">Every day</ion-checkbox>
+  <ion-checkbox [(ngModel)]="_isEveryWeek">Every Week</ion-checkbox>
+  <ion-checkbox [(ngModel)]="_isEveryMonth">Every Month</ion-checkbox>
+  <ion-datetime [(ngModel)]="_timeOfDay"></ion-datetime>
+        <ion-button (click)="submitInitialHookup()">Next!</ion-button>
       </ion-card>
     </ion-list>
     </div>
@@ -53,7 +53,7 @@
           </ion-card>
         </ion-item>
       </ion-list>
-      <ion-button (click)="nextStepBody()">Next!</ion-button>
+      <ion-button (click)="addbody()">Next!</ion-button>
     </ion-card>
   </ion-list>
     </div>
