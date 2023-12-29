@@ -21,7 +21,8 @@ export interface HeaderDTO{
   hookupBeId: number;
   headerKey: string;
   headerValue: string;
-  headerType: string;
+  ValueType: string;
+  SqlQuery: string;
   hookupAsParameter: number;
 }
 

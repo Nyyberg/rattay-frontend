@@ -96,7 +96,8 @@ export class CreatehookupComponent implements OnInit{
         hookupBeId: this.initialHookupID,
         headerKey: item.key,
         headerValue: item.value,
-        headerType: item.type,
+        ValueType: item.type,
+        SqlQuery: item.value,
         hookupAsParameter: 1
       };
       return this.http.addHeaderToHookup(_dto)
