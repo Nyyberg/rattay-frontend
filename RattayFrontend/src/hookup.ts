@@ -18,7 +18,7 @@ export interface BodyDTO{
 }
 
 export interface HeaderDTO{
-  hookupHeaderID: number;
+  hookupBeId: number;
   headerKey: string;
   headerValue: string;
   headerType: string;

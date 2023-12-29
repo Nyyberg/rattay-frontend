@@ -63,7 +63,9 @@ export class Httpservice{
   }
 
   addHeaderToHookup(_dto: HeaderDTO): Observable<any>{
-    return this.http.post(environment.baseUrl+'/addHeader', _dto)
+    const token = localStorage.getItem('token');
+    const headers = new HttpHeaders().set('Authorization', 'Bearer ' + token);
+    return this.http.post(environment.baseUrl+'/addHeader', _dto, {headers})
   }
 
   async getAllHookups(): Promise<void> {

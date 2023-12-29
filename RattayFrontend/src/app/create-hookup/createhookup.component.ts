@@ -90,6 +90,22 @@ export class CreatehookupComponent implements OnInit{
     console.log(this.initialHookupID)
   }
 
+  addHeader(){
+    const addHeaderObservables = this.headers.map((item) => {
+      const _dto: HeaderDTO = {
+        hookupBeId: this.initialHookupID,
+        headerKey: item.key,
+        headerValue: item.value,
+        headerType: item.type,
+        hookupAsParameter: 1
+      };
+      return this.http.addHeaderToHookup(_dto)
+    });
+    forkJoin(addHeaderObservables).subscribe(() => {
+      this.router.navigateByUrl('/dashboard')
+    })
+  }
+
 
   ngOnInit(): void {
     this.addNewParamter();
