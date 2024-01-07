@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="980f9e8e-f786-4497-a858-ec672dfc2f27" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/rattayFrontend/src/app/create-hookup/createhookup.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/rattayFrontend/src/app/create-hookup/createhookup.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,7 +67,7 @@
       <workItem from="1703603151978" duration="4633000" />
       <workItem from="1703673608650" duration="13520000" />
       <workItem from="1703850455983" duration="11284000" />
-      <workItem from="1704652944929" duration="353000" />
+      <workItem from="1704652944929" duration="718000" />
     </task>
     <servers />
   </component>
