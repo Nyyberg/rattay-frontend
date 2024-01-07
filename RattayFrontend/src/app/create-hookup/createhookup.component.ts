@@ -80,7 +80,7 @@ export class CreatehookupComponent implements OnInit{
         parameterName: item.name,
         custom: item.type === 'custom' ? item.value : null,
         sqlQuery: item.type === 'sqlQuery' ? item.value : null,
-        hookupAsParameter: 1,
+        hookupAsParameter: item.type === 'hookupAsParameter' ? item.value : null,
       };
       return this.http.addBodyToHookup(_dto)
     });
@@ -98,7 +98,7 @@ export class CreatehookupComponent implements OnInit{
         headerValue: item.value,
         ValueType: item.type,
         SqlQuery: item.sqlToServer,
-        hookupAsParameter: 1
+        hookupAsParameter: item.hookupAsParameter
       };
       return this.http.addHeaderToHookup(_dto)
     });
